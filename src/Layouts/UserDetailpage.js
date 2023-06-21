@@ -8,6 +8,7 @@ import { setPageName, setMainId } from "../Features/page/pageSlice";
 
 import LoadingMessage from "../Components/LoadingMessage";
 import UserDetailPostListItem from "../Components/UserDetailPostListItem";
+import stringMaxLength from "../Utils/stringMaxLength";
 
 const UserDetailpage = () => {
   const [posts, setPosts] = useState([]);
@@ -52,12 +53,16 @@ const UserDetailpage = () => {
         <LoadingMessage path="Async userToLookAt" message={"user info"} />
       ) : (
         <div>
-          <h3 className="text-center mt-2 mb-0">{userToLookAt.username}</h3>
+          <h3 className="text-center mt-2 mb-0">
+            {stringMaxLength(userToLookAt.username, 20)}
+          </h3>
           {/* accountName */}
           {sameUser ? (
             <p className="text-center mb-1">(You)</p>
           ) : !isEmpty(userToLookAt.full_name) ? (
-            <p className="text-center mb-1">({userToLookAt.full_name})</p>
+            <p className="text-center mb-1">
+              ({stringMaxLength(userToLookAt.full_name, 60)})
+            </p>
           ) : (
             <p className="text-center mb-1">&nbsp;</p>
           )}
@@ -95,7 +100,9 @@ const UserDetailpage = () => {
 
           {/* postHeader */}
           <h5 className="text-center mb-3">
-            {sameUser ? "Your posts" : `Posts by ${userToLookAt.username}`}
+            {sameUser
+              ? "Your posts"
+              : `Posts by ${stringMaxLength(userToLookAt.username, 20)}`}
           </h5>
 
           <ul className="list-group mt-2 mb-3 gap-2">
@@ -113,7 +120,8 @@ const UserDetailpage = () => {
               </p>
             ) : (
               <p className="mt-3 text-center">
-                There are no posts by {userToLookAt.username} yet.
+                There are no posts by{" "}
+                {stringMaxLength(userToLookAt.username, 20)} yet.
               </p>
             )}
           </ul>

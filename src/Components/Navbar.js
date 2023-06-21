@@ -6,6 +6,8 @@ import { setDisplayMode } from "../Features/display/displaySlice";
 
 import DisplayModeToggle from "./DisplayModeToggle";
 
+import stringMaxLength from "../Utils/stringMaxLength";
+
 function Navbar() {
   const user = useSelector((state) => state.auth.user);
   const pageName = useSelector((state) => state.page.pageName);
@@ -43,7 +45,7 @@ function Navbar() {
           }`}
           to={!isEmpty(user) ? `/users/${user._id}` : "/auth/login"}
         >
-          {!isEmpty(user) ? user.first_name : "Log In"}
+          {!isEmpty(user) ? stringMaxLength(user.first_name, 30) : "Log In"}
         </NavLink>
       </li>
       <li className="nav-item">

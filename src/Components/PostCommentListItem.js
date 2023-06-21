@@ -5,6 +5,7 @@ import axiosInstance from "../api/axios";
 
 import CommentReplyListItem from "./CommentReplyListItem";
 import TextAreaInput from "./TextAreaInput";
+import UsernameLink from "./UsernameLink";
 
 function PostCommentListItem(props) {
   const {
@@ -52,17 +53,10 @@ function PostCommentListItem(props) {
       {/* comment info */}
       <div className="mt-2 mb-3 d-flex justify-content-start flex-column flex-sm-row">
         <div className="d-flex">
-          <Link
-            className={`fw-bold ${
-              !isEmpty(comment.user) ? "link-primary" : "link-secondary"
-            }`}
-            to={!isEmpty(comment.user) ? comment.user.url : "/users/null"}
-          >
-            {!isEmpty(comment.user) ? comment.user.username : "Deleted User"}
-          </Link>
-          {!isEmpty(comment.user) && showCommenterFullName ? (
-            <span>&nbsp;({comment.user.full_name})</span>
-          ) : null}
+          <UsernameLink
+            user={comment.user}
+            displayFullName={!isEmpty(comment.user) && showCommenterFullName}
+          />
           <span>&nbsp;&nbsp;</span>
           {comment.isPoster || isByPoster ? (
             <div>

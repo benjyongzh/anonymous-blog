@@ -4,6 +4,8 @@ import "../Styles/custom.css";
 
 import { useSelector } from "react-redux";
 
+import stringMaxLength from "../Utils/stringMaxLength";
+
 function PostListItem(props) {
   const { post: currentPost, currentUser } = props;
   const displayMode = useSelector((state) => state.display.mode);
@@ -21,7 +23,7 @@ function PostListItem(props) {
         {currentPost.user !== null ? (
           <div className="d-flex flex-column flex-sm-row justify-content-start align-items-sm-center">
             <div className="fw-bold text-primary">
-              {currentPost.user.username}&nbsp;
+              {stringMaxLength(currentPost.user.username, 20)}&nbsp;
             </div>
             {!isEmpty(currentUser) && currentUser.member_status !== "Basic" ? (
               <div>({currentPost.user.full_name})&nbsp;</div>

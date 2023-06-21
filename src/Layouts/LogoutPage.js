@@ -3,6 +3,7 @@ import { useEffect } from "react";
 
 import { useDispatch } from "react-redux";
 import { setPageName, setMainId } from "../Features/page/pageSlice";
+import stringMaxLength from "../Utils/stringMaxLength";
 
 function LogoutPage(props) {
   const { state } = useLocation();
@@ -18,7 +19,7 @@ function LogoutPage(props) {
   return (
     <div className="text-center">
       <p className="text-center">
-        {username}, you have been logged out successfully.
+        {stringMaxLength(username, 20)}, you have been logged out successfully.
       </p>
       <Link className="btn btn-primary mt-3" to="/">
         Go back home

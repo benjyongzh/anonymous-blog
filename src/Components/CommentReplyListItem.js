@@ -1,5 +1,6 @@
 import { Link } from "react-router-dom";
 import { isEmpty } from "lodash";
+import UsernameLink from "./UsernameLink";
 
 function CommentReplyListItem(props) {
   const { comment: currentComment, reply, isByPoster } = props;
@@ -9,15 +10,7 @@ function CommentReplyListItem(props) {
       className="list-group-item py-2 border-bottom-2 border-secondary-subtle"
       style={{ paddingRight: "0px" }}
     >
-      {!isEmpty(reply.user) ? (
-        <Link className="fw-bold link-primary" to={reply.user.url}>
-          {reply.user.username}
-        </Link>
-      ) : (
-        <Link className="fw-bold link-secondary" to="/users/null">
-          Deleted User
-        </Link>
-      )}
+      <UsernameLink user={reply.user} displayFullName={false} />
       <span>&nbsp;&nbsp;</span>
       {reply.isPoster || isByPoster ? (
         <span className="badge text-bg-primary">OP</span>

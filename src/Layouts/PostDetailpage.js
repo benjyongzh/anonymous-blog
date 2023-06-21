@@ -9,6 +9,7 @@ import { setPageName, setMainId } from "../Features/page/pageSlice";
 import LoadingMessage from "../Components/LoadingMessage";
 import TextAreaInput from "../Components/TextAreaInput";
 import PostCommentListItem from "../Components/PostCommentListItem";
+import UsernameLink from "../Components/UsernameLink";
 
 import "../Styles/custom.css";
 
@@ -126,26 +127,15 @@ const PostDetailpage = () => {
           <div className="d-flex justify-content-between mt-2 mb-0">
             {/* post OP and date of posting */}
             <div className="d-flex flex-wrap">
-              {!isEmpty(currentPost.user) ? (
-                <div>
-                  <Link
-                    className="fw-bold link-primary"
-                    to={currentPost.user.url}
-                  >
-                    {currentPost.user.username}
-                  </Link>
-                  <span>
-                    {!isEmpty(currentPost.user.first_name) &&
-                    !isEmpty(currentPost.user.last_name)
-                      ? ` (${currentPost.user.full_name})`
-                      : ""}
-                  </span>
-                </div>
-              ) : (
-                <Link className="fw-bold link-secondary" to="/users/null">
-                  Deleted User
-                </Link>
-              )}
+              <UsernameLink
+                user={currentPost.user}
+                displayFullName={
+                  !isEmpty(
+                    currentPost.user.first_name &&
+                      !isEmpty(currentPost.user.last_name)
+                  )
+                }
+              />
               <span>&nbsp;&nbsp;</span>
               <p className="mb-0 fst-italic text-secondary">
                 posted on {currentPost.date_of_post_formatted} (
