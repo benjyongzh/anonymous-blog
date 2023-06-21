@@ -1,5 +1,7 @@
 const stringMaxLength = (string, maxLength) => {
-  return string.substring(0, maxLength).concat("...");
+  return string.length > maxLength
+    ? string.substring(0, maxLength).concat("...")
+    : string;
 };
 
 export default stringMaxLength;
