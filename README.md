@@ -1,12 +1,12 @@
 # Front-end component of Anonymous Blog project
 
-Practice project for MongoDB, ExpressJS and OAuth. This is a project based on an assignment in The Odin Project.
+Practice project for MongoDB, ExpressJS, OAuth React and Bootstrap. This is a project based on an assignment in The Odin Project.
 
 This project serves to imitate a social media site where users can login to create posts, comment on posts, and reply to comments. All posts are public.
 
 Users can apply to become Premium members and/or Admins. Premium members are able to see each user's real name, and Admins have the power to delete posts.
 
-This repo is only the Front-end of the project, and it has been deployed on Railway, here.
+This repo is only the Front-end of the project, and it has been deployed on Railway, [here](https://anonymous-blog-production-93e5.up.railway.app/).
 <br/>
 
 The back-end site is located [here](http://anonymous-blog-production.up.railway.app).
