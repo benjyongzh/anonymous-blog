@@ -1,4 +1,4 @@
-# Back-end component of Anonymous Blog project
+# Front-end component of Anonymous Blog project
 
 Practice project for MongoDB, ExpressJS and OAuth. This is a project based on an assignment in The Odin Project.
 
