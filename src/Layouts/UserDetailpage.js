@@ -62,7 +62,7 @@ const UserDetailpage = () => {
             <p className="text-center mb-1">(You)</p>
           ) : !isEmpty(userToLookAt.full_name) ? (
             <p className="text-center mb-1">
-              ({displayTruncatedFullName(currentPost.user)})
+              ({displayTruncatedFullName(userToLookAt.full_name)})
             </p>
           ) : (
             <p className="text-center mb-1">&nbsp;</p>
