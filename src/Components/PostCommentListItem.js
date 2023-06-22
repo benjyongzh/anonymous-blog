@@ -59,9 +59,8 @@ function PostCommentListItem(props) {
             isPoster={isByPoster}
           />
         </div>
-
         <span className="mb-0 fst-italic text-secondary">
-          {comment.date_of_comment_ago}
+          &nbsp;{comment.date_of_comment_ago}
         </span>
       </div>
 
