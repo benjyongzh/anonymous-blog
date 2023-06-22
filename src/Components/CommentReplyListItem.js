@@ -10,11 +10,12 @@ function CommentReplyListItem(props) {
       className="list-group-item py-2 border-bottom-2 border-secondary-subtle"
       style={{ paddingRight: "0px" }}
     >
-      <UsernameLink user={reply.user} displayFullName={false} />
-      <span>&nbsp;&nbsp;</span>
-      {reply.isPoster || isByPoster ? (
-        <span className="badge text-bg-primary">OP</span>
-      ) : null}
+      <UsernameLink
+        user={reply.user}
+        displayFullName={false}
+        isPoster={isByPoster}
+      />
+
       <p className="mb-1 mt-2">{reply.text}</p>
       <p
         className="mb-0 fst-italic text-secondary"

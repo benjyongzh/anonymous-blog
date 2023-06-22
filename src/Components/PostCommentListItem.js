@@ -56,14 +56,8 @@ function PostCommentListItem(props) {
           <UsernameLink
             user={comment.user}
             displayFullName={!isEmpty(comment.user) && showCommenterFullName}
+            isPoster={isByPoster}
           />
-          <span>&nbsp;&nbsp;</span>
-          {comment.isPoster || isByPoster ? (
-            <div>
-              <span className="badge text-bg-primary">OP</span>
-              <span>&nbsp;&nbsp;</span>
-            </div>
-          ) : null}
         </div>
 
         <span className="mb-0 fst-italic text-secondary">

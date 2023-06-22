@@ -3,7 +3,7 @@ import { isEmpty } from "lodash";
 import stringMaxLength from "../Utils/stringMaxLength";
 
 function UsernameLink(props) {
-  const { user, displayFullName } = props;
+  const { user, displayFullName, isPoster } = props;
 
   return !isEmpty(user) ? (
     <div>
@@ -13,6 +13,12 @@ function UsernameLink(props) {
       <span>
         {displayFullName ? ` (${stringMaxLength(user.full_name, 60)})` : ""}
       </span>
+      {isPoster ? (
+        <span>
+          &nbsp;&nbsp;<span className="badge text-bg-primary">OP</span>
+          &nbsp;&nbsp;
+        </span>
+      ) : null}
     </div>
   ) : (
     <Link className="fw-bold link-secondary" to="/users/null">
