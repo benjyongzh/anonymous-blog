@@ -26,7 +26,9 @@ function PostListItem(props) {
               {stringMaxLength(currentPost.user.username, 20)}&nbsp;
             </div>
             {!isEmpty(currentUser) && currentUser.member_status !== "Basic" ? (
-              <div>({currentPost.user.full_name})&nbsp;</div>
+              <div>
+                ({stringMaxLength(currentPost.user.full_name, 60)})&nbsp;
+              </div>
             ) : null}
           </div>
         ) : (
