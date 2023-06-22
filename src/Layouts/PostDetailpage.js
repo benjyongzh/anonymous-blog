@@ -130,11 +130,9 @@ const PostDetailpage = () => {
               <UsernameLink
                 user={currentPost.user}
                 displayFullName={
-                  !isEmpty(
-                    currentPost.user.first_name &&
-                      !isEmpty(currentPost.user.last_name)
-                  )
+                  !isEmpty(currentUser) && currentUser.member_status !== "Basic"
                 }
+                isPoster={false}
               />
               <span>&nbsp;&nbsp;</span>
               <p className="mb-0 fst-italic text-secondary">
