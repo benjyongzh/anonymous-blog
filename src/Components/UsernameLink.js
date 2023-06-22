@@ -1,6 +1,7 @@
 import { Link } from "react-router-dom";
 import { isEmpty } from "lodash";
 import stringMaxLength from "../Utils/stringMaxLength";
+import displayTruncatedFullName from "../Utils/displayTruncatedFullName";
 
 function UsernameLink(props) {
   const { user, displayFullName, isPoster } = props;
@@ -11,7 +12,9 @@ function UsernameLink(props) {
         {stringMaxLength(user.username, 20)}
       </Link>
       <span>
-        {displayFullName ? ` (${stringMaxLength(user.full_name, 60)})` : ""}
+        {displayFullName
+          ? ` (${displayTruncatedFullName(user.full_name)})`
+          : ""}
       </span>
       {isPoster ? (
         <span>
