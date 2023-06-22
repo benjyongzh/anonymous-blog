@@ -9,6 +9,7 @@ import { setPageName, setMainId } from "../Features/page/pageSlice";
 import LoadingMessage from "../Components/LoadingMessage";
 import UserDetailPostListItem from "../Components/UserDetailPostListItem";
 import stringMaxLength from "../Utils/stringMaxLength";
+import displayTruncatedFullName from "../Utils/displayTruncatedFullName";
 
 const UserDetailpage = () => {
   const [posts, setPosts] = useState([]);
@@ -61,7 +62,7 @@ const UserDetailpage = () => {
             <p className="text-center mb-1">(You)</p>
           ) : !isEmpty(userToLookAt.full_name) ? (
             <p className="text-center mb-1">
-              ({stringMaxLength(userToLookAt.full_name, 60)})
+              ({displayTruncatedFullName(currentPost.user)})
             </p>
           ) : (
             <p className="text-center mb-1">&nbsp;</p>

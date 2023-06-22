@@ -5,6 +5,7 @@ import "../Styles/custom.css";
 import { useSelector } from "react-redux";
 
 import stringMaxLength from "../Utils/stringMaxLength";
+import displayTruncatedFullName from "../Utils/displayTruncatedFullName";
 
 function PostListItem(props) {
   const { post: currentPost, currentUser } = props;
@@ -26,9 +27,7 @@ function PostListItem(props) {
               {stringMaxLength(currentPost.user.username, 20)}&nbsp;
             </div>
             {!isEmpty(currentUser) && currentUser.member_status !== "Basic" ? (
-              <div>
-                ({stringMaxLength(currentPost.user.full_name, 60)})&nbsp;
-              </div>
+              <div>({displayTruncatedFullName(currentPost.user)})&nbsp;</div>
             ) : null}
           </div>
         ) : (
