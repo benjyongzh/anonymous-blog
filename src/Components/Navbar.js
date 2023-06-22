@@ -34,7 +34,17 @@ function Navbar() {
           displayState={displayMode}
         />
       </li>
-      <li className="mx-0 mt-1" />
+      <li className="mx-0 mt-2" />
+      <li className="nav-item">
+        <NavLink
+          className={`fs-6 nav-link text-end ${
+            pageName === "home" ? "active text-primary fw-bold" : ""
+          }`}
+          to="/"
+        >
+          Home
+        </NavLink>
+      </li>
 
       <li className="nav-item">
         <NavLink
